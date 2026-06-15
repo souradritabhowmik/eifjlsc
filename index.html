@@ -6,61 +6,62 @@
 <title>Rita Bhowmik</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=EB+Garamond:wght@400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{--black:#0a0a0a;--white:#fafafa;--mid:#888;--light:#e4e4e4;}
+:root{
+  --black:#0a0a0a;
+  --white:#fafafa;
+  --mid:#888;
+  --light:#e4e4e4;
+  --red:#9e1515;
+}
 html{scroll-behavior:smooth;}
 body{background:var(--white);color:var(--black);font-family:'DM Sans',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;}
 
-/* ── HERO ── */
-:root{--red:#9e1515;}
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.2rem 3.5rem;
+  background:rgba(250,250,250,0.92);
+  backdrop-filter:blur(8px);
+  border-bottom:0.5px solid var(--light);
+  z-index:100;
+}
+.nav__name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:400;letter-spacing:-0.01em;}
+.nav__links{display:flex;gap:2.5rem;}
+.nav__links a{font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color 0.2s;}
+.nav__links a:hover{color:var(--black);}
+
+/* HERO */
 .hero{
   min-height:100vh;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
-  padding:2.2rem 3.5rem 2.5rem;
+  padding:6rem 3.5rem 2.5rem;
   border-bottom:0.5px solid var(--light);
-  position:relative;
-  overflow:hidden;
-}
-.hero__top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.hero__label{
-  font-size:0.6rem;
-  letter-spacing:0.14em;
-  text-transform:uppercase;
-  color:var(--mid);
-  line-height:1.9;
 }
 .hero__main{
   flex:1;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:4rem;
-  padding:3rem 0 2rem;
+  gap:5rem;
+  padding:2rem 0;
 }
-.hero__text{
-  flex:1;
-  max-width:640px;
-}
+.hero__text{flex:1;}
 .hero__greeting{
-  font-family:'DM Sans',sans-serif;
-  font-size:0.72rem;
-  font-weight:300;
+  font-size:0.7rem;
   letter-spacing:0.18em;
   text-transform:uppercase;
   color:var(--mid);
-  margin-bottom:1rem;
+  margin-bottom:1.2rem;
 }
 .hero__name{
   font-family:'Playfair Display',serif;
-  font-size:clamp(2.8rem,6vw,5.5rem);
+  font-size:clamp(3rem,6vw,5.5rem);
   font-weight:400;
   line-height:0.95;
   letter-spacing:-0.02em;
@@ -68,11 +69,10 @@ body{background:var(--white);color:var(--black);font-family:'DM Sans',sans-serif
 }
 .hero__portfolio{
   font-family:'Playfair Display',serif;
-  font-size:clamp(4.5rem,10vw,9rem);
+  font-size:clamp(5rem,10vw,9rem);
   font-weight:400;
   font-style:italic;
   line-height:0.88;
-  letter-spacing:-0.02em;
   color:var(--red);
   margin-top:0.05em;
 }
@@ -82,77 +82,159 @@ body{background:var(--white);color:var(--black);font-family:'DM Sans',sans-serif
   font-weight:300;
   vertical-align:super;
   color:var(--mid);
-  margin-left:0.12em;
+  margin-left:0.1em;
   font-style:normal;
 }
-.hero__currently{
-  margin-top:2.2rem;
-}
+.hero__currently{margin-top:2.5rem;}
 .hero__currently-label{
   font-size:0.58rem;
   letter-spacing:0.15em;
   text-transform:uppercase;
   color:var(--mid);
-  margin-bottom:0.6rem;
+  margin-bottom:0.7rem;
 }
 .hero__currently-list{list-style:none;}
 .hero__currently-list li{
   font-family:'EB Garamond',serif;
-  font-size:1.1rem;
-  line-height:1.7;
+  font-size:1.12rem;
+  line-height:1.75;
   color:#333;
-  padding:0.08rem 0;
 }
 .hero__currently-list li::before{
   content:'→';
   margin-right:0.55em;
   color:var(--mid);
-  font-family:'DM Sans',sans-serif;
   font-size:0.75rem;
 }
-.hero__photo-wrap{
-  flex-shrink:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
+.hero__photo-wrap{flex-shrink:0;}
 .hero__photo-circle{
-  width:280px;
-  height:280px;
+  width:300px;height:300px;
   border-radius:50%;
   overflow:hidden;
   border:0.5px solid var(--light);
 }
 .hero__photo-circle img{
-  width:100%;
-  height:100%;
+  width:100%;height:100%;
   object-fit:cover;
   object-position:center top;
   display:block;
-  filter:grayscale(0%);
 }
 .hero__bottom{
   display:grid;
   grid-template-columns:1fr 1fr 1fr;
-  align-items:end;
-  padding-top:1.2rem;
+  padding-top:1.5rem;
   border-top:0.5px solid var(--light);
 }
-.hero__bottom-label{font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);line-height:1.9;}
+.hero__bottom-label{font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);line-height:2;}
 .hero__bottom-center{text-align:center;}
 .hero__bottom-right{text-align:right;}
-.scroll-cue{position:absolute;bottom:5rem;right:3.5rem;display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;text-decoration:none;color:var(--mid);z-index:4;}
-.scroll-cue span{font-size:0.52rem;letter-spacing:0.15em;text-transform:uppercase;}
-.scroll-cue__line{width:0.5px;height:36px;background:var(--mid);animation:scrollLine 1.8s ease-in-out infinite;transform-origin:top;}
-@keyframes scrollLine{0%,100%{transform:scaleY(1);opacity:0.35;}50%{transform:scaleY(0.4);opacity:1;}}
+
+/* SECTIONS */
+section{padding:5.5rem 3.5rem;border-bottom:0.5px solid var(--light);}
+.eyebrow{font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--mid);margin-bottom:3rem;}
+
+/* ABOUT */
+.about__grid{display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:start;}
+.about__name{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:400;line-height:1.1;}
+.about__name em{font-style:italic;}
+.about__bio{font-family:'EB Garamond',serif;font-size:1.2rem;line-height:1.78;color:#222;}
+.about__bio p+p{margin-top:1.1em;}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:2rem;}
+.tag{font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;border:0.5px solid var(--black);padding:4px 11px;}
+
+/* EXPERIENCE */
+.exp__item{display:grid;grid-template-columns:180px 1fr;gap:2rem;padding:2.5rem 0;border-top:0.5px solid var(--light);}
+.exp__item:last-child{border-bottom:0.5px solid var(--light);}
+.exp__date{font-size:0.66rem;letter-spacing:0.06em;color:var(--mid);line-height:1.7;padding-top:0.15rem;}
+.exp__role{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:400;margin-bottom:0.3rem;}
+.exp__company{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);margin-bottom:0.9rem;}
+.exp__desc{font-family:'EB Garamond',serif;font-size:1.05rem;line-height:1.72;color:#333;max-width:560px;}
+.exp__skills{display:flex;flex-wrap:wrap;gap:6px;margin-top:0.9rem;}
+.exp__skill{font-size:0.56rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);border:0.5px solid var(--light);padding:3px 8px;}
+
+/* EDUCATION */
+.edu__item{display:grid;grid-template-columns:180px 1fr;gap:2rem;padding:2.5rem 0;border-top:0.5px solid var(--light);}
+.edu__item:last-child{border-bottom:0.5px solid var(--light);}
+.edu__date{font-size:0.66rem;letter-spacing:0.06em;color:var(--mid);padding-top:0.15rem;}
+.edu__school{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:400;margin-bottom:0.3rem;}
+.edu__degree{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);margin-bottom:0.8rem;}
+.edu__detail{font-family:'EB Garamond',serif;font-size:1.02rem;line-height:1.68;color:#444;}
+
+/* CREDENTIALS */
+.cred__list{display:flex;gap:3rem;flex-wrap:wrap;}
+.cred__item{border-left:0.5px solid var(--black);padding-left:1.2rem;}
+.cred__name{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:400;margin-bottom:0.2rem;}
+.cred__issuer{font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);}
+
+/* UPLOAD SECTIONS */
+.upload-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.5rem;}
+.upload-card{
+  border:0.5px solid var(--light);
+  padding:2rem 1.5rem;
+  cursor:pointer;
+  transition:border-color 0.2s;
+  display:flex;flex-direction:column;gap:0.8rem;
+}
+.upload-card:hover{border-color:var(--black);}
+.upload-card.filled{border-color:var(--black);}
+.upload-icon{opacity:0.3;width:28px;height:28px;}
+.upload-card-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:400;}
+.upload-card-sub{font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);}
+.upload-preview img{width:100%;max-height:160px;object-fit:cover;display:block;margin-top:0.5rem;}
+.upload-preview iframe{width:100%;height:180px;border:none;display:block;margin-top:0.5rem;}
+.upload-filename{font-size:0.58rem;letter-spacing:0.07em;text-transform:uppercase;color:var(--mid);word-break:break-all;}
+.upload-remove{font-size:0.58rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);background:none;border:none;padding:0;cursor:pointer;}
+.upload-remove:hover{color:var(--black);}
+
+/* CONTACT */
+.contact__inner{display:flex;justify-content:space-between;align-items:flex-end;}
+.contact__heading{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:400;line-height:1.05;}
+.contact__heading em{font-style:italic;}
+.contact__links{display:flex;flex-direction:column;gap:0.7rem;align-items:flex-end;}
+.contact__link{font-size:0.66rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--black);text-decoration:none;border-bottom:0.5px solid var(--black);padding-bottom:1px;transition:opacity 0.2s;}
+.contact__link:hover{opacity:0.4;}
+
+/* FOOTER */
+footer{padding:1.8rem 3.5rem;display:flex;justify-content:space-between;}
+.footer-text{font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+/* MOBILE */
+@media(max-width:720px){
+  nav{padding:1rem 1.5rem;}
+  .hero,.contact__inner,footer{padding-left:1.5rem;padding-right:1.5rem;}
+  section{padding:4rem 1.5rem;}
+  .hero__main{flex-direction:column-reverse;gap:2rem;padding:1.5rem 0;}
+  .hero__photo-circle{width:200px;height:200px;}
+  .hero__bottom{grid-template-columns:1fr;gap:0.3rem;}
+  .hero__bottom-center,.hero__bottom-right{text-align:left;}
+  .about__grid{grid-template-columns:1fr;gap:2rem;}
+  .exp__item,.edu__item{grid-template-columns:1fr;gap:0.4rem;}
+  .contact__inner{flex-direction:column;gap:2rem;align-items:flex-start;}
+  .contact__links{align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav__name">Rita Bhowmik</div>
+  <div class="nav__links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#research">Research</a>
+    <a href="#art">Art</a>
+    <a href="#writing">Writing</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
 
 <!-- HERO -->
-<section class="hero" id="top">
-  <div class="hero__top">
-    <div class="hero__label">Design &amp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Visual</div>
-    <div class="hero__label">r2bhowmi@uwaterloo.ca</div>
-  </div>
-
+<div class="hero">
   <div class="hero__main">
     <div class="hero__text">
       <div class="hero__greeting">hi, i'm</div>
@@ -173,17 +255,189 @@ body{background:var(--white);color:var(--black);font-family:'DM Sans',sans-serif
       </div>
     </div>
   </div>
-
   <div class="hero__bottom">
     <div class="hero__bottom-label">BMath · University of Waterloo</div>
     <div class="hero__bottom-center hero__bottom-label">( Mathematics Student )</div>
-    <div class="hero__bottom-right hero__bottom-label">Greater Toronto<br>Area, Canada</div>
+    <div class="hero__bottom-right hero__bottom-label">Greater Toronto Area, Canada</div>
   </div>
+</div>
 
-  <a class="scroll-cue" href="#about" aria-label="Scroll down">
-    <span>scroll</span>
-    <div class="scroll-cue__line"></div>
-  </a>
+<!-- ABOUT -->
+<section id="about">
+  <p class="eyebrow reveal">About</p>
+  <div class="about__grid">
+    <div class="about__name reveal">Rita<br><em>Bhowmik</em></div>
+    <div>
+      <div class="about__bio reveal" style="transition-delay:0.08s">
+        <p>Second-year BMath student at the University of Waterloo with a foundation in mathematics and economics. I care about building things that work: clean analysis, well-scoped software, and products that solve real problems.</p>
+        <p>Currently interning at Mespere LifeSciences and doing ML research at Titan Medical. Actively exploring data analyst and finance roles where rigour and curiosity collide.</p>
+        <p>In my free time, I love to read, strength train, and explore nature on my bike. I'm also an ex-competitive swimmer and Ontario certified lifeguard, and I run my own swim instruction business.</p>
+      </div>
+      <div class="tags reveal" style="transition-delay:0.14s">
+        <span class="tag">Python</span>
+        <span class="tag">SQL</span>
+        <span class="tag">PyTorch</span>
+        <span class="tag">OpenCV</span>
+        <span class="tag">Data Analysis</span>
+        <span class="tag">ML</span>
+        <span class="tag">Swim Instructor</span>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- EXPERIENCE -->
+<section id="experience">
+  <p class="eyebrow reveal">Experience</p>
+  <div class="exp__item reveal">
+    <div class="exp__date">Jun 2026 to Present<br>London, ON · Hybrid</div>
+    <div>
+      <div class="exp__role">Research Development Software Engineer</div>
+      <div class="exp__company">Titan Medical Inc. · Seasonal</div>
+      <div class="exp__desc">Working with Dr. Reiza Rayman on ML modelling in facial recognition analysis algorithms. Building data preprocessing and augmentation workflows for image datasets. Venture-backed startup (1M pre-seed).</div>
+      <div class="exp__skills">
+        <span class="exp__skill">Python</span><span class="exp__skill">OpenCV</span><span class="exp__skill">PyTorch</span><span class="exp__skill">Computer Vision</span>
+      </div>
+    </div>
+  </div>
+  <div class="exp__item reveal" style="transition-delay:0.07s">
+    <div class="exp__date">May 2026 to Present<br>Waterloo, ON · On-site</div>
+    <div>
+      <div class="exp__role">Engineer Intern</div>
+      <div class="exp__company">Mespere LifeSciences Inc. · Co-op</div>
+      <div class="exp__desc">Supporting engineering and business analysis at a medical device company specialising in noninvasive cardiac and cerebral hemodynamic monitoring. Contributed to global market research and distributor identification.</div>
+      <div class="exp__skills">
+        <span class="exp__skill">Electronics Design</span><span class="exp__skill">Business Analysis</span><span class="exp__skill">Market Research</span>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- EDUCATION -->
+<section id="education">
+  <p class="eyebrow reveal">Education</p>
+  <div class="edu__item reveal">
+    <div class="edu__date">2025 to 2030</div>
+    <div>
+      <div class="edu__school">University of Waterloo</div>
+      <div class="edu__degree">Bachelor of Mathematics (BMath)</div>
+      <div class="edu__detail">President's Scholarship of Distinction. OTA Education Foundation Scholarship.<br>Activities: IMC Prosperity, UW ActSci Club Executive.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section id="credentials">
+  <p class="eyebrow reveal">Credentials</p>
+  <div class="cred__list">
+    <div class="cred__item reveal">
+      <div class="cred__name">AWS AI Practitioner</div>
+      <div class="cred__issuer">Amazon Web Services · Aug 2025</div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <p class="eyebrow reveal">Research</p>
+  <div class="upload-grid" id="grid-research">
+    <div class="upload-card reveal" onclick="triggerUpload('research-input')">
+      <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+      <div class="upload-card-title">Add Paper</div>
+      <div class="upload-card-sub">PDF or document</div>
+    </div>
+  </div>
+  <input type="file" id="research-input" style="display:none" accept=".pdf,.doc,.docx" multiple onchange="handleFiles(this,'grid-research','pdf')"/>
+</section>
+
+<!-- ART -->
+<section id="art">
+  <p class="eyebrow reveal">Art</p>
+  <div class="upload-grid" id="grid-art">
+    <div class="upload-card reveal" onclick="triggerUpload('art-input')">
+      <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <div class="upload-card-title">Add Artwork</div>
+      <div class="upload-card-sub">Images, illustrations</div>
+    </div>
+  </div>
+  <input type="file" id="art-input" style="display:none" accept="image/*" multiple onchange="handleFiles(this,'grid-art','image')"/>
+</section>
+
+<!-- WRITING -->
+<section id="writing">
+  <p class="eyebrow reveal">Writing &amp; Journals</p>
+  <div class="upload-grid" id="grid-writing">
+    <div class="upload-card reveal" onclick="triggerUpload('writing-input')">
+      <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      <div class="upload-card-title">Add Writing</div>
+      <div class="upload-card-sub">Essays, journals, notes</div>
+    </div>
+  </div>
+  <input type="file" id="writing-input" style="display:none" accept=".pdf,.txt,.md,image/*" multiple onchange="handleFiles(this,'grid-writing','auto')"/>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact__inner">
+    <div class="contact__heading reveal">Let's<br><em>connect.</em></div>
+    <div class="contact__links reveal" style="transition-delay:0.1s">
+      <a class="contact__link" href="mailto:r2bhowmi@uwaterloo.ca">r2bhowmi@uwaterloo.ca</a>
+      <a class="contact__link" href="https://www.linkedin.com/in/ritabhowmik/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-text">Rita Bhowmik · 2026</span>
+  <span class="footer-text">University of Waterloo</span>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+function triggerUpload(id){document.getElementById(id).click();}
+
+function handleFiles(input, gridId, mode){
+  const grid = document.getElementById(gridId);
+  const addBtn = grid.querySelector('.upload-card:not(.filled)');
+  Array.from(input.files).forEach(file=>{
+    const card = document.createElement('div');
+    card.className = 'upload-card filled';
+    const isImg = file.type.startsWith('image/');
+    const isPdf = file.type === 'application/pdf';
+    const type = mode==='auto' ? (isImg?'image':isPdf?'pdf':'text') : mode;
+    const preview = document.createElement('div');
+    preview.className = 'upload-preview';
+    if(type==='image'||isImg){
+      const img = document.createElement('img');
+      img.src = URL.createObjectURL(file);
+      preview.appendChild(img);
+    } else if(isPdf){
+      const fr = new FileReader();
+      fr.onload = e=>{
+        const ifrm = document.createElement('iframe');
+        ifrm.src = e.target.result;
+        preview.appendChild(ifrm);
+      };
+      fr.readAsDataURL(file);
+    }
+    const fn = document.createElement('div');
+    fn.className='upload-filename';
+    fn.textContent=file.name;
+    const rm = document.createElement('button');
+    rm.className='upload-remove';
+    rm.textContent='remove';
+    rm.onclick=()=>card.remove();
+    card.appendChild(preview);
+    card.appendChild(fn);
+    card.appendChild(rm);
+    grid.insertBefore(card, addBtn);
+  });
+  input.value='';
+}
+</script>
+</body>
+</html>
