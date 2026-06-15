@@ -5,7 +5,7 @@ https://souradritabhowmik.github.io/ritasportfolio/
 checkups
 
 add:
--domain
 
+-domain
 
 -delta project
