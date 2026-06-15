@@ -328,14 +328,31 @@ footer{padding:1.8rem 3.5rem;display:flex;justify-content:space-between;}
 <!-- RESEARCH -->
 <section id="research">
   <p class="eyebrow reveal">Research</p>
+
   <div class="upload-grid" id="grid-research">
-    <div class="upload-card reveal" onclick="triggerUpload('research-input')">
-      <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
-      <div class="upload-card-title">Add Paper</div>
-      <div class="upload-card-sub">PDF or document</div>
+    
+    <!-- Project Card -->
+    <div class="upload-card reveal" style="cursor: default; padding:16px;">
+      
+      <!-- Embedded Video -->
+      <video controls style="width:100%; border-radius:12px; margin-bottom:12px;">
+        <source src="delta-demo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- Title -->
+      <div class="upload-card-title">DELTA Trading System</div>
+
+      <!-- Bullet Points -->
+      <ul class="upload-card-sub" style="text-align:left; margin-top:8px; padding-left:18px;">
+        <li>Stock ticker visualization system</li>
+        <li>API retrieval system powered by Gemini LLM</li>
+        <li>Won Best UI/UX Design – Wealthsimple Hackathon</li>
+      </ul>
+
     </div>
+
   </div>
-  <input type="file" id="research-input" style="display:none" accept=".pdf,.doc,.docx" multiple onchange="handleFiles(this,'grid-research','pdf')"/>
 </section>
 
 <!-- ART -->
